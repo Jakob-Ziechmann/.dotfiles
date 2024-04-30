@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOCATIONS=zsh
+LOCATIONS=(zsh git)
 
-for LOCATION in $LOCATIONS; do 
+for LOCATION in ${LOCATIONS[@]}; do 
   stow -t $HOME --dotfiles $LOCATION
 done
