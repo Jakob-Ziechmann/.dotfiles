@@ -1,0 +1,7 @@
+#!/bin/bash
+
+LOCATIONS=zsh
+
+for LOCATION in $LOCATIONS; do 
+  stow -t $HOME --dotfiles $LOCATION
+done
