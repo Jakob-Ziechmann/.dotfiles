@@ -1,3 +1,5 @@
 [user]
 	email = 48921293+Jakob-Ziechmann@users.noreply.github.com
 	name = Jakob Ziechmann
+[core]
+	editor = vim
