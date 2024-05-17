@@ -1,14 +1,15 @@
 #!/bin/bash
 
-LOCATIONS=(zsh git tmux alacritty)
+LOCATIONS=(zsh git tmux nvim alacritty)
 
 for LOCATION in ${LOCATIONS[@]}; do 
   TARGET=$HOME
 
   # Getting the install location if specified
   if [ -e $LOCATION/base.location ]; then
-    # loading location
+    # loading location and create directory
     TARGET=$(readlink -f "$(eval echo $(< "$LOCATION/base.location"))")
+    mkdir -p $TARGET
   fi
 
   stow -t $TARGET --dotfiles --ignore="base.location" $LOCATION
