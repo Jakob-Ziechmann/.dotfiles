@@ -1,7 +1,15 @@
 #!/bin/bash
 
-LOCATIONS=(zsh git)
+LOCATIONS=(zsh git tmux)
 
 for LOCATION in ${LOCATIONS[@]}; do 
-  stow -t $HOME --dotfiles $LOCATION
+  TARGET=$HOME
+
+  # Getting the install location if specified
+  if [ -e $LOCATION/base.location ]; then
+    # loading location
+    TARGET=$(readlink -f "$(eval echo $(< "$LOCATION/base.location"))")
+  fi
+
+  stow -t $TARGET --dotfiles --ignore="base.location" $LOCATION -n -vv
 done
