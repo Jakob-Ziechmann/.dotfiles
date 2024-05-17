@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCATIONS=(zsh git tmux)
+LOCATIONS=(zsh git tmux alacritty)
 
 for LOCATION in ${LOCATIONS[@]}; do 
   TARGET=$HOME
@@ -11,5 +11,5 @@ for LOCATION in ${LOCATIONS[@]}; do
     TARGET=$(readlink -f "$(eval echo $(< "$LOCATION/base.location"))")
   fi
 
-  stow -t $TARGET --dotfiles --ignore="base.location" $LOCATION -n -vv
+  stow -t $TARGET --dotfiles --ignore="base.location" $LOCATION
 done
