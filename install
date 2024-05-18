@@ -1,8 +1,9 @@
 #!/bin/bash
 
-LOCATIONS=(zsh git tmux nvim alacritty)
+LOCATIONS=(zsh git tmux nvim alacritty fastfetch)
 
 for LOCATION in ${LOCATIONS[@]}; do 
+  echo "Deploying $LOCATION config."
   TARGET=$HOME
 
   # Getting the install location if specified
