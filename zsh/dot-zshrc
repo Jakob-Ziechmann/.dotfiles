@@ -19,6 +19,19 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+# Check for distribution and execute distro-specific configuration
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    case "$ID" in
+        ubuntu)
+            source .zsh/ubuntu.zsh
+            ;;
+        *)
+            # Other distributions
+            ;;
+    esac
+fi
+
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
